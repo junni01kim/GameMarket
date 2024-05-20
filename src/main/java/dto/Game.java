@@ -16,8 +16,9 @@ public class Game implements Serializable {
 	private String releaseDate;   //출판일(월/년)
 	private String condition; 		//신제품 or 구제품 or 리퍼브제품
 	private String filename;        //이미지
-	private int rating;
-	private String review;
+	private int rating = 0;
+	private int ratingCount = 0;
+	private String review = "";
 	
 
 	public Game() {
@@ -110,14 +111,16 @@ public class Game implements Serializable {
 	}
 
 	public String getRating() {
+		int averageRating = rating/ratingCount;
 		String stars = "";
-		for(int i=0; i<rating; i++) stars += "★";
-		for(int i=0; i<5-rating; i++) stars += "☆";
+		for(int i=0; i<averageRating; i++) stars += "★";
+		for(int i=0; i<5-averageRating; i++) stars += "☆";
 		return stars;
 	}
 	
 	public void setRating(int rating) {
-		this.rating = rating;
+		this.rating += rating;
+		addRatingCount();
 	}
 	
 	public String getReiview() {
@@ -126,5 +129,9 @@ public class Game implements Serializable {
 	
 	public void setReview(String review) {
 		this.review = review;
+	}
+	
+	public void addRatingCount() {
+		ratingCount++;
 	}
 }

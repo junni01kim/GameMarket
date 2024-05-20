@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import dto.Game;
 
 
@@ -85,5 +87,15 @@ public class GameRepository{
 	public void addGame(Game game) {
 		listOfGames.add(game);
 	}
-
+	
+	public void updateGame(String gameId, int rating, String review) {
+		for (Iterator iterator = listOfGames.iterator(); iterator.hasNext();) {
+			Game game = (Game) iterator.next();
+			if(game.getGameId().equals(gameId)) {
+				game.setRating(rating);
+				game.setReview(review);
+				break;
+			}
+		}
+	}
 }

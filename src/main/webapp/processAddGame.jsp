@@ -17,7 +17,6 @@
 
 	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
 
-
 	String gameID = multi.getParameter("gameId");
 	String name = multi.getParameter("name");
 	String unitPrice = multi.getParameter("unitPrice");
@@ -26,7 +25,6 @@
 	String releaseDate = multi.getParameter("releaseDate");	
 	String description = multi.getParameter("description");	
 	String category = multi.getParameter("category");
-	String unitsInStock = multi.getParameter("unitsInStock");
 	String condition = multi.getParameter("condition");
 
 	Enumeration files = multi.getFileNames();
@@ -40,14 +38,6 @@
 		price = 0;
 	else
 		price = Integer.valueOf(unitPrice);
-
-	long stock;
-
-	if (unitsInStock.isEmpty())
-		stock = 0;
-	else
-		stock = Long.valueOf(unitsInStock);	
-	
 	
 	GameRepository dao = GameRepository.getInstance();
 
@@ -60,7 +50,6 @@
 	newBook.setPublisher(releaseDate);
 	newBook.setDescription(description);
 	newBook.setCategory(category);
-	newBook.setUnitsInStock(stock);
 	newBook.setCondition(condition);
 	newBook.setFilename(fileName);
 

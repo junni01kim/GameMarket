@@ -14,7 +14,7 @@
 
    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold"><fmt:message key="title" /></h1>
+        <h1 class="display-5 fw-bold"><fmt:message key="addGameTitle" /></h1>
         <p class="col-md-8 fs-4">Book Addition</p>      
       </div>
     </div>
@@ -24,7 +24,7 @@
 			<a href="?language=ko" >Korean</a> | <a href="?language=en" >English</a>
 			<a href = "logout.jsp" class ="btn btn-sm btn-success pull right">logout</a>
 		</div>	
-		<form name="newBook" action="./processAddBook.jsp" method="post" enctype ="multipart/form-data">		
+		<form name="newGame" action="./processAddGame.jsp" method="post" enctype ="multipart/form-data">		
 			<div class="mb-3 row">
 				<label class="col-sm-2"><fmt:message key="gameId" /></label>
 				<div class="col-sm-3">
@@ -75,12 +75,6 @@
 					<input type="text" name="category" class="form-control" >
 				</div>
 			</div>
-				<div class="mb-3 row">
-				<label class="col-sm-2"><fmt:message key="unitsInStock" /></label>
-				<div class="col-sm-3">
-					<input type="text" name="unitsInStock" 1 id = "unitsInStock" class="form-control" >
-				</div>
-			</div>
 			<div class="mb-3 row">
 				<label class="col-sm-2"><fmt:message key="condition" /></label>
 				<div class="col-sm-5">
@@ -99,7 +93,7 @@
 			
 			<div class="mb-3 row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="button" class="btn btn-primary" value="<fmt:message key="button" />" onclick="CheckAddBook()">
+					<input type="button" class="btn btn-primary" value="<fmt:message key="button" />" onclick="CheckAddGame()">
 				</div>
 			</div>
 		</form>

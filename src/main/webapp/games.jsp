@@ -34,10 +34,10 @@
 				<h5><b><%=game.getName()%></b></h5>
 				<p><%=game.getProducer()%>
 				<br> <%=game.getPublisher()%> | <%=game.getUnitPrice()%>원
-				<p> <%=game.getDescription().substring(0,60)%>...
+				<p> <%=game.getDescription().substring(0,10)%>...
 				<p><%=game.getUnitPrice()%>원
 				<p><%=game.getRating()%>
-				<p><%=game.getReiview().substring(0,60)%>
+				<p><%=game.getReiview()%>
 				<p><a href="./game.jsp?id=<%=game.getGameId()%>" class="btn btn-secondary" role="button"> 상세 정보 &raquo;</a>
 			</div>	
 		</div>			
