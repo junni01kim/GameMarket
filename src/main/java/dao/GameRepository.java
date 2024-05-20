@@ -18,37 +18,51 @@ public class GameRepository{
 	
 	public GameRepository() {
 	
-		Game game1= new Game("ISBN1234","C# 프로그래밍", 27000);
-		game1.setProducer("우재남");
-		game1.setDescription("C#을 처음 접하는 독자를 대상으로 일대일 수업처럼 자세히 설명한 책이다. 꼭 알아야 할 핵심 개념은 기본 예제로 최대한 쉽게 설명했으며, 중요한 내용은 응용 예제, 퀴즈, 셀프 스터디, 예제 모음으로 한번 더 복습할 수 있다.");
-		game1.setPublisher("한빛아카데미");
-		game1.setCategory("IT모바일");
-		game1.setUnitsInStock(1000);	
-		game1.setReleaseDate("2022/10/06");
+		// 코드명은 영문 둘째짜리까지 기술
+		Game game1= new Game("AE0001","에이몽어스");
+		game1.setProducer("OuttererSloth");
+		game1.setDescription("죽기 싫다면 찾아라, 그리고 너는 숨어라!");
+		game1.setPublisher("Unique Games");
+		game1.setCategory("추리");	
+		game1.setReleaseDate("2018/06/15");
 		game1.setFilename("ISBN1234.jpg");
+		game1.setRating(5);
+		game1.setReview("살다살다 이렇게 재밌는 게임은 처음봤어요!!");
 		
-		Game game2 = new Game("ISBN1235","자바마스터", 30000);
-		game2.setProducer("송미영");
-		game2.setDescription("자바를 처음 배우는 학생을 위해 자바의 기본 개념과 실습 예제를 그림을 이용하여 쉽게 설명합니다. 자바의 이론적 개념→기본 예제→프로젝트 순으로 단계별 학습이 가능하며, 각 챕터의 프로젝트를 실습하면서 온라인 서점을 완성할 수 있도록 구성하였습니다.");
-		game2.setPublisher("한빛아카데미");
-		game2.setCategory("IT모바일");
-		game2.setUnitsInStock(1000);		
-		game2.setReleaseDate("2023/01/01");
+		Game game2 = new Game("LI0001","리브바이데이라이트");
+		game2.setProducer("비긴헤이비어");
+		game2.setDescription("끝까지 도망쳐라, 그렇다면 살아남을 것이다!");
+		game2.setPublisher("증기");
+		game2.setCategory("공포");
+		game2.setReleaseDate("2016/06/14");
 		game2.setFilename("ISBN1235.jpg");
+		game2.setRating(3);
+		game2.setReview("찬구끼리는 하고 싶지만 가족끼리는 하기 싫은 게임.");
 		
-		Game game3= new Game("ISBN1236","파이썬 프로그래밍", 30000);
-		game3.setProducer("최성철");
-		game3.setDescription(" 파이썬으로 프로그래밍을 시작하는 입문자가 쉽게 이해할 수 있도록 기본 개념을 상세하게 설명하며, 다양한 예제를 제시합니다. 또한 프로그래밍의 기초 원리를 이해하면서 파이썬으로 데이터를 처리하는 기법도 배웁니다.");
-		game3.setPublisher("한빛아카데미");
-		game3.setCategory("IT모바일");
-		game3.setUnitsInStock(1000);	
-		game3.setReleaseDate("2023/01/01");
+		Game game3 = new Game("MO0001","나만의 마블");
+		game3.setProducer("엠투플레이");
+		game3.setDescription("나만을 마블 나만 해");
+		game3.setPublisher("인터넷마블");
+		game3.setCategory("오락");
+		game3.setReleaseDate("2013/06/09");
 		game3.setFilename("ISBN1236.jpg");
+		game3.setRating(1);
+		game3.setReview("와...");
+		
+		Game game4 = new Game("SU001","서든방어");
+		game4.setProducer("녹슨지티");
+		game4.setDescription("아이고~ 깜짝이야!");
+		game4.setPublisher("돈슨");
+		game4.setCategory("슈팅");
+		game4.setReleaseDate("2005/04/11");
+		game4.setFilename("ISBN1236.jpg");
+		game4.setRating(4);
+		game4.setReview("추억을 떠오르게 하는 향수를 불러 일으키는 게임");
 		
 		listOfGames.add(game1);
 		listOfGames.add(game2);
 		listOfGames.add(game3);
-		
+		listOfGames.add(game4);
 		
 	}
 	public ArrayList<Game> getAllGames() {

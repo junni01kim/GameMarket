@@ -26,17 +26,19 @@
 	 <div class="row align-items-md-stretch   text-center">	 	
 	 <%
 		for (int i = 0; i < listOfGames.size(); i++) {
-			Game Game = listOfGames.get(i);
+			Game game = listOfGames.get(i);
 	  %>
      	<div class="col-md-4">
        		<div class="h-100 p-2">	
-       			<img src="./resources/images/<%=Game.getFilename()%>" style="width: 250; height:350" />		
-				<h5><b><%=Game.getName()%></b></h5>
-				<p><%=Game.getProducer()%>
-				<br> <%=Game.getPublisher()%> | <%=Game.getUnitPrice()%>원
-				<p> <%=Game.getDescription().substring(0,60)%>...
-				<p><%=Game.getUnitPrice()%>원
-				<p><a href="./game.jsp?id=<%=Game.getGameId()%>" class="btn btn-secondary" role="button"> 상세 정보 &raquo;</a>
+       			<img src="./resources/images/<%=game.getFilename()%>" style="width: 250; height:350" />		
+				<h5><b><%=game.getName()%></b></h5>
+				<p><%=game.getProducer()%>
+				<br> <%=game.getPublisher()%> | <%=game.getUnitPrice()%>원
+				<p> <%=game.getDescription().substring(0,60)%>...
+				<p><%=game.getUnitPrice()%>원
+				<p><%=game.getRating()%>
+				<p><%=game.getReiview().substring(0,60)%>
+				<p><a href="./game.jsp?id=<%=game.getGameId()%>" class="btn btn-secondary" role="button"> 상세 정보 &raquo;</a>
 			</div>	
 		</div>			
 		<%

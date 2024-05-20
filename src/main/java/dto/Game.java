@@ -13,20 +13,20 @@ public class Game implements Serializable {
 	private String description; 	//설명
 	private String publisher;	    //출판사
 	private String category; 		//분류
-	private long   unitsInStock; 	//재고개수
 	private String releaseDate;   //출판일(월/년)
 	private String condition; 		//신제품 or 구제품 or 리퍼브제품
 	private String filename;        //이미지
+	private int rating;
+	private String review;
 	
 
 	public Game() {
 		super();
 }
 
-	public Game(String gameId, String name, Integer unitPrice) {
+	public Game(String gameId, String name) {
 		this.gameId = gameId;
 		this.name = name;
-		this.unitPrice = unitPrice;
 	}
 
 	public String getGameId() {
@@ -85,14 +85,6 @@ public class Game implements Serializable {
 		this.category = category;
 	}
 
-	public long getUnitsInStock() {
-		return unitsInStock;
-	}
-
-	public void setUnitsInStock(long unitsInStock) {
-		this.unitsInStock = unitsInStock;
-	}
-
 	public String getReleaseDate() {
 		return releaseDate;
 	}
@@ -117,5 +109,22 @@ public class Game implements Serializable {
 		this.filename = filename;
 	}
 
-
+	public String getRating() {
+		String stars = "";
+		for(int i=0; i<rating; i++) stars += "★";
+		for(int i=0; i<5-rating; i++) stars += "☆";
+		return stars;
+	}
+	
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	public String getReiview() {
+		return review;
+	}
+	
+	public void setReview(String review) {
+		this.review = review;
+	}
 }
