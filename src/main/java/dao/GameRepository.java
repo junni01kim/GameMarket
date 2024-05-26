@@ -27,7 +27,7 @@ public class GameRepository{
 		game1.setPublisher("Unique Games");
 		game1.setCategory("추리");	
 		game1.setReleaseDate("2018/06/15");
-		game1.setFilename("ISBN1234.jpg");
+		game1.setFilename("AE0001.png");
 		game1.setRating(5);
 		game1.setReview("살다살다 이렇게 재밌는 게임은 처음봤어요!!");
 		
@@ -37,7 +37,7 @@ public class GameRepository{
 		game2.setPublisher("증기");
 		game2.setCategory("공포");
 		game2.setReleaseDate("2016/06/14");
-		game2.setFilename("ISBN1235.jpg");
+		game2.setFilename("LI0001.jpg");
 		game2.setRating(3);
 		game2.setReview("찬구끼리는 하고 싶지만 가족끼리는 하기 싫은 게임.");
 		
@@ -47,7 +47,7 @@ public class GameRepository{
 		game3.setPublisher("인터넷마블");
 		game3.setCategory("오락");
 		game3.setReleaseDate("2013/06/09");
-		game3.setFilename("ISBN1236.jpg");
+		game3.setFilename("MO0001.jpg");
 		game3.setRating(1);
 		game3.setReview("와...");
 		
@@ -57,7 +57,7 @@ public class GameRepository{
 		game4.setPublisher("돈슨");
 		game4.setCategory("슈팅");
 		game4.setReleaseDate("2005/04/11");
-		game4.setFilename("ISBN1236.jpg");
+		game4.setFilename("SU001.jpg");
 		game4.setRating(4);
 		game4.setReview("추억을 떠오르게 하는 향수를 불러 일으키는 게임");
 		
@@ -88,10 +88,10 @@ public class GameRepository{
 		listOfGames.add(game);
 	}
 	
-	public void updateGame(String gameId, int rating, String review) {
+	public void updateGame(String name, int rating, String review) {
 		for (Iterator iterator = listOfGames.iterator(); iterator.hasNext();) {
 			Game game = (Game) iterator.next();
-			if(game.getGameId().equals(gameId)) {
+			if(game.getName().equals(name.strip())) {
 				game.setRating(rating);
 				game.setReview(review);
 				break;

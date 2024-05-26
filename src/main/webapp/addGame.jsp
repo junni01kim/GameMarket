@@ -15,13 +15,13 @@
    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold"><fmt:message key="addGameTitle" /></h1>
-        <p class="col-md-8 fs-4">Book Addition</p>      
+        <p class="col-md-8 fs-4">Game Addition</p>      
       </div>
     </div>
   
   <div class="row align-items-md-stretch">	 
    		<div class="text-end"> 
-			<a href="?language=ko" >Korean</a> | <a href="?language=en" >English</a>
+			<a href="?language=ko" >Korean</a> | <a href="?language=en" >English</a> | <a href="?language=jp" >Japanese</a>
 			<a href = "logout.jsp" class ="btn btn-sm btn-success pull right">logout</a>
 		</div>	
 		<form name="newGame" action="./processAddGame.jsp" method="post" enctype ="multipart/form-data">		
@@ -66,7 +66,7 @@
 				<label class="col-sm-2"><fmt:message key="description" /></label>
 				<div class="col-sm-5">
 					<textarea name="description" id="description" cols="50" rows="2" 
-						class="form-control" placeholder="100자 이상 적어주세요"></textarea>
+						class="form-control" placeholder="20자 이상 적어주세요"></textarea>
 				</div>
 			</div>			
 			<div class="mb-3 row">

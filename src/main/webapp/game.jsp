@@ -8,6 +8,15 @@
  <link href = "./resources/css/bootstrap.min.css" rel="stylesheet">
 
 <title>도서 정보</title>
+<script type = "text/javascript">
+	function addToCart() {
+		if (confirm("게임을 장바구니에 추가하시겠습니까?")){
+			document.addForm.submit();
+		} else{
+			document.addForm.reset();
+		}
+	}
+</script>
 </head>
 <body>
 <div class="container py-4">
@@ -37,10 +46,12 @@
 				<p><b>출판사</b> : <%=game.getPublisher()%>	
 				<p><b>공개날짜</b> : <%=game.getReleaseDate()%>					
 				<p><b>분류</b> : <%=game.getCategory()%>
-				<p><b>재고수</b> : <%=game.getUnitsInStock()%>
 				<h4><%=game.getUnitPrice()%>원</h4>
-				<p><a href="#" class="btn btn-info"> 게임주문 &raquo;</a> 
-					<a href="./games.jsp" class="btn btn-secondary"> 게임목록 &raquo;</a>
+				<p> <form name="addForm" action="./addCart.jsp?id=<%=game.getGameId()%>" method="post">
+					<a href="#" class="btn btn-info" onclick="addToCart()">게임주문 &raquo;</a> 
+					<a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
+					<a href="./games.jsp" class="btn btn-secondary">게임목록 &raquo;</a>
+					</form>
 			</div>
 		</div>
 	<jsp:include page="footer.jsp" />

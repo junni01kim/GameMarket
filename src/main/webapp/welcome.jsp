@@ -27,7 +27,7 @@
                 response.setIntHeader("Refresh", 1);
 				Date day = new java.util.Date();
 				
-				Date discountEndDay = new java.util.Date(2024, 05, 20, 18, 0, 0);
+				Date discountEndDay = new java.util.Date(2024, 05, 21, 10, 0, 0);
 						
 				int hour = discountEndDay.getHours() - day.getHours() - 1;
 				int minute = 60 - discountEndDay.getMinutes() - day.getMinutes()- 1;

@@ -10,12 +10,12 @@
 
 	String filename = "";
 
-	String realFolder = "C:\\Users\\user\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\BookMarket\\resources\\images";
+	String realFolder = "C:\\Users\\audwn\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\GameMarket\\resources\\images";
 	int maxSize = 5 * 1024 * 1024; //최대 업로드될 파일의 크기5Mb
 	String encType = "utf-8"; //인코딩 타입
 	
-
-	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, policy);
 
 	String gameID = multi.getParameter("gameId");
 	String name = multi.getParameter("name");
@@ -41,19 +41,19 @@
 	
 	GameRepository dao = GameRepository.getInstance();
 
-	Game newBook = new Game();
-	newBook.setGameId(gameID);
-	newBook.setName(name);
-	newBook.setUnitPrice(price);
-	newBook.setProducer(producer);
-	newBook.setPublisher(publisher);
-	newBook.setPublisher(releaseDate);
-	newBook.setDescription(description);
-	newBook.setCategory(category);
-	newBook.setCondition(condition);
-	newBook.setFilename(fileName);
+	Game newGame = new Game();
+	newGame.setGameId(gameID);
+	newGame.setName(name);
+	newGame.setUnitPrice(price);
+	newGame.setProducer(producer);
+	newGame.setPublisher(publisher);
+	newGame.setPublisher(releaseDate);
+	newGame.setDescription(description);
+	newGame.setCategory(category);
+	newGame.setCondition(condition);
+	newGame.setFilename(fileName);
 
-	dao.addGame(newBook);
+	dao.addGame(newGame);
 
 	response.sendRedirect("games.jsp");
 
