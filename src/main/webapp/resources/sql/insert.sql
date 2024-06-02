@@ -10,3 +10,5 @@ desc game;
 SELECT * FROM GAME;
 
 drop table game;
+
+DELETE FROM game WHERE g_name = '웹서버프로그래밍';

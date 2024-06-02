@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="6.0">
-  <security-role>
+    <!-- admin 권한설정 -->
+    <security-role>
 		<description></description >
 		<role-name>admin</role-name>
 	</security-role>
+	<!-- user 권한설정 -->
+	<security-role>
+		<description></description >
+		<role-name>role1</role-name>
+	</security-role>
+	
+	
+	<!-- admin 페이지 -->
 	<security-constraint>
-		<display-name>BookMarket Security</display-name>
+		<display-name>BookMarket Admin</display-name>
 		<web-resource-collection>
-			<web-resource-name>BookMarket</web-resource-name>
+			<web-resource-name>BookMarketAdmin</web-resource-name>
 			<description></description>
 			<url-pattern>/addBook.jsp</url-pattern>
+			<url-pattern>/editGame.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>권한 관리자명</description>
 			<role-name>admin</role-name>
 		</auth-constraint>
 	</security-constraint>
+	
+	<!-- user 페이지 -->
+	<security-constraint>
+		<display-name>BookMarket User</display-name>
+		<web-resource-collection>
+			<web-resource-name>BookMarketUser</web-resource-name>
+			<description></description>
+			<url-pattern>/addReview.jsp</url-pattern>
+			<url-pattern>/updateReview.jsp</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>권한 사용자</description>
+			<role-name>role1</role-name>
+		</auth-constraint>
+	</security-constraint>
+	
+	
+	
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
@@ -28,54 +56,3 @@
 		<location>/exceptionNoPage.jsp</location>
 	</error-page>
 </web-app>
-
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="6.0">
- <security-role>
-    <description></description>
-    <role-name>admin</role-name>
-	</security-role>
-	<security-constraint>
-		<display-name>GameMarket Security</display-name>
-		<web-resource-collection>
-			<web-resource-name>GameMarket</web-resource-name>
-			<description></description>
-			<url-pattern>/addGame.jsp</url-pattern>
-			<url-pattern>/editGame.jsp</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<description>권한 관리자명</description>
-			<role-name>admin</role-name>
-		</auth-constraint>
-	</security-constraint>
-	
-	<security-role>
-	    <description></description>
-	    <role-name>user</role-name>
-	</security-role>
-	<security-constraint>
-		<display-name>GameMarket Review</display-name>
-		<web-resource-collection>
-			<web-resource-name>GameMarket</web-resource-name>
-			<description></description>
-			<url-pattern>/addReview.jsp</url-pattern>
-			<url-pattern>/updateReview.jsp</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<description>권한 유저명</description>
-			<role-name>user</role-name>
-		</auth-constraint>
-	</security-constraint>
-	
-	<login-config>
-		<auth-method>FORM</auth-method>
-		<form-login-config>
-			<form-login-page>/login.jsp</form-login-page>
-			<form-error-page>/login_failed.jsp</form-error-page>
-		</form-login-config>
-	</login-config>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/exceptionNoPage.jsp</location>
-	</error-page>
-</web-app> -->

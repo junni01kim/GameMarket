@@ -11,10 +11,10 @@
 
 	GameRepository dao = GameRepository.getInstance();
 
-	Game game = dao.getGameById(id);
+/* 	Game game = dao.getGameById(id);
 	if (game == null) {
 		response.sendRedirect("exceptionNoGameId.jsp");
-	}
+	} */
 
 	ArrayList<Game> goodsList = dao.getAllGames();
 	Game goods = new Game();

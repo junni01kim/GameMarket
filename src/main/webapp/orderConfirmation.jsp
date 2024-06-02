@@ -14,6 +14,7 @@
 	String shipping_country = "";
 	String shipping_zipCode = "";
 	String shipping_addressName = "";
+	String shipping_accountNumber = "";
 	
 	Cookie[] cookies = request.getCookies();
 
@@ -33,6 +34,8 @@
 				shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 			if (n.equals("Shipping_addressName"))
 				shipping_addressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+			if (n.equals("Shipping_accountNumber"))
+				shipping_accountNumber = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 		}
 	}
 %>
@@ -65,6 +68,7 @@
 				<strong>배송 주소</strong> <br> 성명 : <% out.println(shipping_name); %><br> 
 				우편번호 : <% 	out.println(shipping_zipCode);%><br> 
 				주소 : <%	out.println(shipping_addressName);%>(<%	out.println(shipping_country);%>)<br>
+				계좌번호 : <% out.println(shipping_accountNumber); %><br>
 			</div>
 			<div class="col-4" align="right">
 				<p>	<em>배송일: <% out.println(shipping_shippingDate);	%></em>

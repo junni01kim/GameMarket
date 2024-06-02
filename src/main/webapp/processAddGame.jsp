@@ -11,7 +11,7 @@
 
 	String filename = "";
 
-	String realFolder = "C:\\Users\\audwn\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\GameMarket\\resources\\images";
+	String realFolder = "C:\\Users\\audwn\\eclipse-workspace\\GameMarket\\src\\main\\webapp\\resources\\images";
 	int maxSize = 5 * 1024 * 1024; //최대 업로드될 파일의 크기5Mb
 	String encType = "utf-8"; //인코딩 타입
 	
@@ -42,7 +42,7 @@
 	
 	PreparedStatement pstmt = null;	
 	
-	String sql = "insert into book values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	String sql = "insert into game values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, gameID);

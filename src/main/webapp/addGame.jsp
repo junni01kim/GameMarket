@@ -80,7 +80,7 @@
 				<div class="col-sm-5">
 					<input type="radio" name="condition" value="New " ><fmt:message key="condition_New" />
 					<input type="radio" name="condition" value="Old" > <fmt:message key="condition_Old" /> 
-					<input type="radio" name="condition" value="EBook" ><fmt:message key="condition_Ebook" />
+					<input type="radio" name="condition" value="EBook" ><fmt:message key="condition_Return" />
 				</div>				
 			</div>		
 			

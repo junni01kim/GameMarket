@@ -1,5 +1,4 @@
 function CheckAddGame() {
-
 	var gameId = document.getElementById("gameId");
 	var name = document.getElementById("name");
 	var unitPrice = document.getElementById("unitPrice");
@@ -100,4 +99,32 @@ function CheckAddReview() {
 		return false;
 	}*/
 	 document.newReview.submit()
+}
+
+function CheckAddShippingInfo() {
+
+	var accountNumber = document.getElementById("accountNumber");
+		
+	// 게임명 체크	
+	if (accountNumber.value.length < 15 || accountNumber.value.length > 11) {
+		alert("[계좌번호]\n최소 12자에서 최대 14자까지 입력하세요");
+		//name.select();
+		accountNumber.focus();
+		return false;
+	}
+	
+	// 게임 가격 체크
+	if (accountNumber.value.length == 0 || isNaN(accountNumber.value)) {
+		alert("[계좌번호]\n숫자만 입력하세요");
+		accountNumber.focus();
+		return false;
+	}
+
+	if (accountNumber.value < 0) {
+		alert("[계좌번호]\n음수를 입력할 수 없습니다");
+		accountNumber.focus();
+		return false;
+	} 
+
+	 document.shippingInfo.submit()
 }

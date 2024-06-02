@@ -35,7 +35,7 @@
 				<img src="./resources/images/<%=rs.getString("g_filename")%>" alt="image" style="width: 100%" />
 			</div>
 		<div class="col-md-7">	
-		<form name="newGame" action="./processUpdateGame.jsp" method="post" enctype ="multipart/form-data">
+		<form name="updateGame" action="./processUpdateGame.jsp" method="post" enctype ="multipart/form-data">
 		
 			
 			<div class="mb-3 row">
