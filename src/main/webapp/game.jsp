@@ -29,31 +29,51 @@
       </div>
     </div>
 	
-	<%
-		String id = request.getParameter("id");
-	    GameRepository dao = GameRepository.getInstance();
-	    Game game = dao.getGameById(id);
-	%>
-	 <div class="row align-items-md-stretch">	 	
+	<%@ include file="dbconn.jsp"%>
+  <%
+		String gameId = request.getParameter("id");
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+	
+		String sql = "select * from game where g_id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, gameId);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+	%>		
+	<div class="row align-items-md-stretch">	 	
 	 		<div class="col-md-5">
-				<img src="./resources/images/<%=game.getFilename()%>" style="width: 70%">
+				<img src="./resources/images/<%=rs.getString("g_fileName")%>" style="width: 70%">
 			</div>
 			<div class="col-md-6">
-				<h3><b><%=game.getName()%></b></h3>
-				<p><%=game.getDescription()%>
-				<p><b>게임코드 : </b><span class="badge text-bg-danger"> <%=game.getGameId()%></span>							
-				<p><b>제작사</b> : <%=game.getProducer()%>	
-				<p><b>출판사</b> : <%=game.getPublisher()%>	
-				<p><b>공개날짜</b> : <%=game.getReleaseDate()%>					
-				<p><b>분류</b> : <%=game.getCategory()%>
-				<h4><%=game.getUnitPrice()%>원</h4>
-				<p> <form name="addForm" action="./addCart.jsp?id=<%=game.getGameId()%>" method="post">
+				<h3><b><%=rs.getString("g_name")%></b></h3>
+				<p><%=rs.getString("g_description")%>
+				<p><b>게임코드 : </b><span class="badge text-bg-danger"> <%=rs.getString("g_id")%></span>							
+				<p><b>제작사</b> : <%=rs.getString("g_producer")%>	
+				<p><b>출판사</b> : <%=rs.getString("g_publisher")%>	
+				<p><b>공개날짜</b> : <%=rs.getString("g_releaseDate")%>					
+				<p><b>분류</b> : <%=rs.getString("g_category")%>
+				<p><b>별점</b> : <%=Game.getRating(Integer.parseInt(rs.getString("g_rating")), Integer.parseInt(rs.getString("g_rating_count")))%>					
+				<p><b>리뷰</b> : <%=rs.getString("g_review")%>
+				
+				<h4><%=rs.getInt("g_unitPrice")%>원</h4>
+				<p> <form name="addForm" action="./addCart.jsp?id=<%=rs.getString("g_id")%>" method="post">
 					<a href="#" class="btn btn-info" onclick="addToCart()">게임주문 &raquo;</a> 
 					<a href="./cart.jsp" class="btn btn-warning">장바구니 &raquo;</a>
 					<a href="./games.jsp" class="btn btn-secondary">게임목록 &raquo;</a>
 					</form>
 			</div>
 		</div>
+	<%
+		}
+		if (rs != null)
+			rs.close();
+		if (pstmt != null)
+			pstmt.close();
+		if (conn != null)
+			conn.close();
+	%>
 	<jsp:include page="footer.jsp" />
 </div>
 </body>

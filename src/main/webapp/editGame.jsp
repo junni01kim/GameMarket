@@ -51,8 +51,6 @@
 				<br> <%=rs.getString("g_publisher")%> | <%=rs.getString("g_unitPrice")%>원
 				<p> <%=rs.getString("g_description").substring(0,10)%>....
 				<p><%=rs.getString("g_unitPrice")%>원
-				<p><%=rs.getString("g_rating")%>
-				<p><%=rs.getString("g_review")%>
 				<p><%
 						if (edit.equals("update")) {
 					%>
