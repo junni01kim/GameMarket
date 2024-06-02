@@ -14,7 +14,8 @@
          <li class="nav-item"><a href="./games.jsp" class="nav-link" >게임 목록</a></li>
          <li class ="nav-item"><a href = "./addGame.jsp" class = "nav-link"  >게임 등록</a></li>
          <li class ="nav-item"><a href = "./editGame.jsp?edit=update" class = "nav-link"  >게임 수정</a></li>
-          <li class ="nav-item"><a href = "./editGame.jsp?edit=delete" class = "nav-link"  >게임 삭제</a></li>
+         <li class ="nav-item"><a href = "./editGame.jsp?edit=delete" class = "nav-link"  >게임 삭제</a></li>
+         <li class ="nav-item"><a href = "./addReview.jsp" class = "nav-link"  >게임 리뷰</a></li>
        </ul> 
     </div>
   </div>   

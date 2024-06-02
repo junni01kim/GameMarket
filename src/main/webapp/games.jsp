@@ -27,8 +27,8 @@
 	 <div class="row align-items-md-stretch   text-center">	 	
 	 <% 
 	 	PreparedStatement pstmt = null;
-		 ResultSet rs = null;
-		 String sql = "SELECT * FROM game";
+		ResultSet rs = null;
+		String sql = "SELECT * FROM game";
 		pstmt=conn.prepareStatement(sql);
 		rs=pstmt.executeQuery();
 		while(rs.next()){

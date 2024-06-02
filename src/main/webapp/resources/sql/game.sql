@@ -13,3 +13,6 @@ CREATE TABLE IF NOT EXISTS game(
 	g_review VARCHAR(100),
 	PRIMARY KEY(g_id)
 ) DEFAULT CHARSET = utf8;
+
+
+ALTER TABLE game ADD CONSTRAINT g_name UNIQUE (g_name);
