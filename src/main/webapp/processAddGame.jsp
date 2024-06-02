@@ -4,9 +4,10 @@
 <%@ page import="com.oreilly.servlet.*"%>
 <%@ page import="com.oreilly.servlet.multipart.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import = "java.sql.*" %>
+<%@ include file="dbconn.jsp" %>
 <%
 	request.setCharacterEncoding("UTF-8");
-
 
 	String filename = "";
 
@@ -39,21 +40,29 @@
 	else
 		price = Integer.valueOf(unitPrice);
 	
-	GameRepository dao = GameRepository.getInstance();
+	PreparedStatement pstmt = null;	
+	
+	String sql = "insert into book values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	Game newGame = new Game();
-	newGame.setGameId(gameID);
-	newGame.setName(name);
-	newGame.setUnitPrice(price);
-	newGame.setProducer(producer);
-	newGame.setPublisher(publisher);
-	newGame.setPublisher(releaseDate);
-	newGame.setDescription(description);
-	newGame.setCategory(category);
-	newGame.setCondition(condition);
-	newGame.setFilename(fileName);
-
-	dao.addGame(newGame);
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, gameID);
+	pstmt.setString(2, name);
+	pstmt.setInt(3, price);
+	pstmt.setString(4, producer);
+	pstmt.setString(5, description);
+	pstmt.setString(6, publisher);
+	pstmt.setString(7, category);
+	pstmt.setString(8, releaseDate);
+	pstmt.setString(9, fileName);
+	pstmt.setInt(10, 0);
+	pstmt.setInt(11, 0);
+	pstmt.setString(12, "");
+	pstmt.executeUpdate();
+	
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
 
 	response.sendRedirect("games.jsp");
 

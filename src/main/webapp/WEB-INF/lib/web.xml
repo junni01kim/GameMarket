@@ -5,32 +5,17 @@
 		<role-name>admin</role-name>
 	</security-role>
 	<security-constraint>
-		<display-name>GameMarket Security</display-name>
+		<display-name>BookMarket Security</display-name>
 		<web-resource-collection>
-			<web-resource-name>GameMarket</web-resource-name>
+			<web-resource-name>BookMarket</web-resource-name>
 			<description></description>
-			<url-pattern>/addGame.jsp</url-pattern>
-			<url-pattern>/editGame.jsp</url-pattern>
+			<url-pattern>/addBook.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>권한 관리자명</description>
 			<role-name>admin</role-name>
 		</auth-constraint>
 	</security-constraint>
-	
-	<security-constraint>
-		<display-name>GameMarket ONLY USER</display-name>
-		<web-resource-collection>
-			<web-resource-name>GameMarket</web-resource-name>
-			<description></description>
-			<url-pattern>/addReview.jsp</url-pattern>
-		</web-resource-collection>
-		<auth-constraint>
-			<description>권한 관리자명</description>
-			<role-name>admin</role-name>
-		</auth-constraint>
-	</security-constraint>
-	
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
