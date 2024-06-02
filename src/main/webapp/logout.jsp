@@ -1,5 +1,5 @@
 ﻿<%@ page contentType="text/html; charset=utf-8"%>
 <%
 	session.invalidate();
-	response.sendRedirect("addGame.jsp");
+	response.sendRedirect("games.jsp");
 %>
